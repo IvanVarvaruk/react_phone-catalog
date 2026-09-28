@@ -67,8 +67,12 @@ export const ProductPage: React.FC = () => {
     data: catalog,
     isLoading,
     error,
-  } = useFetch<DeviceDetails[]>(isKnownCategory ? publicPath(`/api/${ category }.json`) : '');
-  const { data: allProducts } = useFetch<Product[]>(publicPath('/api/products.json'));
+  } = useFetch<DeviceDetails[]>(
+    isKnownCategory ? publicPath(`/api/${category}.json`) : '',
+  );
+  const { data: allProducts } = useFetch<Product[]>(
+    publicPath('/api/products.json'),
+  );
   const { favouriteIds, cartIds, toggleFavourite, addToCart } = useShop();
 
   const product = catalog?.find(item => item.id === itemId);

@@ -14,7 +14,11 @@ const AUTOPLAY_DELAY = 5000;
 
 const slides: Slide[] = [
   { id: 'phones', image: publicPath('/img/banner-phones.png'), alt: 'Phones' },
-  { id: 'tablets', image: publicPath('/img/banner-tablets.png'), alt: 'Tablets' },
+  {
+    id: 'tablets',
+    image: publicPath('/img/banner-tablets.png'),
+    alt: 'Tablets',
+  },
   {
     id: 'accessories',
     image: publicPath('/img/banner-accessories.png'),

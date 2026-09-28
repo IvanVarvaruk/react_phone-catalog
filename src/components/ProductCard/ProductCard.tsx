@@ -32,7 +32,11 @@ export const ProductCard: React.FC<Props> = ({
         to={`/${product.category}/${itemId}`}
         className="product-card__image-wrapper"
       >
-        <img src={publicPath(image)} alt={name} className="product-card__image" />
+        <img
+          src={publicPath(image)}
+          alt={name}
+          className="product-card__image"
+        />
       </Link>
 
       <Link
