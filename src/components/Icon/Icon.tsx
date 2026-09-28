@@ -1,4 +1,5 @@
 import React from 'react';
+import { publicPath } from '../../utils/publicPath';
 
 export type IconName =
   | 'heart'
@@ -29,7 +30,7 @@ export const Icon: React.FC<Props> = ({
 }) => {
   return (
     <img
-      src={`/icons/${name}.svg`}
+      src={publicPath(`/icons/${name}.svg`)}
       alt={name}
       className={className}
       width={width}
