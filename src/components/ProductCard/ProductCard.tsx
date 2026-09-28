@@ -5,6 +5,7 @@ import { Product } from '../../types/product.types';
 import { IconButton } from '../IconButton';
 import { AddToCartButton } from '../AddToCartButton';
 import './ProductCard.scss';
+import { publicPath } from '../../utils/publicPath';
 
 interface Props {
   product: Product;
@@ -31,7 +32,7 @@ export const ProductCard: React.FC<Props> = ({
         to={`/${product.category}/${itemId}`}
         className="product-card__image-wrapper"
       >
-        <img src={`/${image}`} alt={name} className="product-card__image" />
+        <img src={publicPath(image)} alt={name} className="product-card__image" />
       </Link>
 
       <Link

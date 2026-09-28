@@ -7,7 +7,7 @@ import './assets/scss/main.scss';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <ShopProvider>
         <App />
       </ShopProvider>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import classNames from '../../utils/classNames';
 import './ProductGallery.scss';
+import { publicPath } from '../../utils/publicPath';
 
 interface Props {
   images: string[];
@@ -24,7 +25,7 @@ export const ProductGallery: React.FC<Props> = ({ images, alt }) => {
               })}
             >
               <img
-                src={`/${image}`}
+                src={publicPath(image)}
                 alt=""
                 className="product-gallery__thumb-image"
               />
@@ -35,7 +36,7 @@ export const ProductGallery: React.FC<Props> = ({ images, alt }) => {
 
       <div className="product-gallery__main">
         <img
-          src={`/${images[activeIndex]}`}
+          src={publicPath(images[activeIndex])}
           alt={alt}
           className="product-gallery__main-image"
         />

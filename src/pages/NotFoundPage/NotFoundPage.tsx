@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './NotFoundPage.scss';
+import { publicPath } from '../../utils/publicPath';
 
 interface Props {
   image?: string;
@@ -10,7 +11,7 @@ interface Props {
 }
 
 export const NotFoundPage: React.FC<Props> = ({
-  image = '/img/page-not-found.png',
+  image = publicPath('/img/page-not-found.png'),
   title = 'Page not found',
   linkTo = '/',
   linkLabel = 'Go to Home page',

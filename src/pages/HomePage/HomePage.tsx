@@ -8,22 +8,23 @@ import { CategoryCard } from '../../components/CategoryCard';
 import { Loader } from '../../components/Loader';
 import { ErrorMessage } from '../../components/ErrorMessage';
 import './HomePage.scss';
+import { publicPath } from '../../utils/publicPath';
 
 const categories = [
   {
     title: 'Mobile phones',
     category: 'phones',
-    image: '/img/category-phones.webp',
+    image: publicPath('/img/category-phones.webp'),
   },
   {
     title: 'Tablets',
     category: 'tablets',
-    image: '/img/category-tablets.webp',
+    image: publicPath('/img/category-tablets.webp'),
   },
   {
     title: 'Accessories',
     category: 'accessories',
-    image: '/img/category-accessories.webp',
+    image: publicPath('/img/category-accessories.webp'),
   },
 ] as const;
 
@@ -32,7 +33,7 @@ export const HomePage: React.FC = () => {
     data: products,
     isLoading,
     error,
-  } = useFetch<Product[]>('/api/products.json');
+  } = useFetch<Product[]>(publicPath('/api/products.json'));
   const { favouriteIds, cartIds, toggleFavourite, addToCart } = useShop();
 
   const brandNewModels = useMemo(() => {

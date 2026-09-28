@@ -3,6 +3,7 @@ import { CartItem as CartItemType } from '../../types/product.types';
 import { formatPrice } from '../../utils/format';
 import { IconButton } from '../IconButton';
 import './CartItem.scss';
+import { publicPath } from '../../utils/publicPath';
 
 interface Props {
   item: CartItemType;
@@ -27,7 +28,7 @@ export const CartItem: React.FC<Props> = ({
       />
 
       <img
-        src={`/${product.image}`}
+        src={publicPath(product.image)}
         alt={product.name}
         className="cart-item__image"
       />

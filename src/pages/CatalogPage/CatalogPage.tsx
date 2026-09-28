@@ -10,6 +10,7 @@ import { Pagination } from '../../components/Pagination';
 import { Loader } from '../../components/Loader';
 import { ErrorMessage } from '../../components/ErrorMessage';
 import './CatalogPage.scss';
+import { publicPath } from '../../utils/publicPath';
 
 interface Props {
   category: Category;
@@ -55,7 +56,7 @@ export const CatalogPage: React.FC<Props> = ({ category, title }) => {
     data: allProducts,
     isLoading,
     error,
-  } = useFetch<Product[]>('/api/products.json');
+  } = useFetch<Product[]>(publicPath('/api/products.json'));
   const { favouriteIds, cartIds, toggleFavourite, addToCart } = useShop();
 
   const [searchParams, setSearchParams] = useSearchParams();

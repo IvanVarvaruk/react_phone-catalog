@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import classNames from '../../utils/classNames';
 import { IconButton } from '../IconButton';
 import './Banner.scss';
+import { publicPath } from '../../utils/publicPath';
 
 interface Slide {
   id: string;
@@ -12,11 +13,11 @@ interface Slide {
 const AUTOPLAY_DELAY = 5000;
 
 const slides: Slide[] = [
-  { id: 'phones', image: '/img/banner-phones.png', alt: 'Phones' },
-  { id: 'tablets', image: '/img/banner-tablets.png', alt: 'Tablets' },
+  { id: 'phones', image: publicPath('/img/banner-phones.png'), alt: 'Phones' },
+  { id: 'tablets', image: publicPath('/img/banner-tablets.png'), alt: 'Tablets' },
   {
     id: 'accessories',
-    image: '/img/banner-accessories.png',
+    image: publicPath('/img/banner-accessories.png'),
     alt: 'Accessories',
   },
 ];

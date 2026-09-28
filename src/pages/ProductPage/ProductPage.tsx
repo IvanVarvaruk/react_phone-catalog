@@ -17,6 +17,7 @@ import { Loader } from '../../components/Loader';
 import { ErrorMessage } from '../../components/ErrorMessage';
 import { NotFoundPage } from '../NotFoundPage/NotFoundPage';
 import './ProductPage.scss';
+import { publicPath } from '../../utils/publicPath';
 
 const CATEGORIES: Category[] = ['phones', 'tablets', 'accessories'];
 
@@ -66,8 +67,8 @@ export const ProductPage: React.FC = () => {
     data: catalog,
     isLoading,
     error,
-  } = useFetch<DeviceDetails[]>(isKnownCategory ? `/api/${category}.json` : '');
-  const { data: allProducts } = useFetch<Product[]>('/api/products.json');
+  } = useFetch<DeviceDetails[]>(isKnownCategory ? publicPath(`/api/${ category }.json`) : '');
+  const { data: allProducts } = useFetch<Product[]>(publicPath('/api/products.json'));
   const { favouriteIds, cartIds, toggleFavourite, addToCart } = useShop();
 
   const product = catalog?.find(item => item.id === itemId);
@@ -114,7 +115,7 @@ export const ProductPage: React.FC = () => {
   if (!product) {
     return (
       <NotFoundPage
-        image="/img/product-not-found.png"
+        image={publicPath('/img/product-not-found.png')}
         title="Product was not found"
         linkTo={`/${category}`}
         linkLabel={`Back to ${CATEGORY_LABELS[category]}`}
