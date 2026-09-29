@@ -1,4 +1,6 @@
 import React, { useMemo } from 'react';
+import { publicPath } from '../../utils/publicPath';
+import { useDocumentTitle } from '../../hooks/useDocumentTitle';
 import { useFetch } from '../../hooks/useFetch';
 import { useShop } from '../../context/ShopContext';
 import { Product } from '../../types/product.types';
@@ -8,7 +10,6 @@ import { CategoryCard } from '../../components/CategoryCard';
 import { Loader } from '../../components/Loader';
 import { ErrorMessage } from '../../components/ErrorMessage';
 import './HomePage.scss';
-import { publicPath } from '../../utils/publicPath';
 
 const categories = [
   {
@@ -29,6 +30,7 @@ const categories = [
 ] as const;
 
 export const HomePage: React.FC = () => {
+  useDocumentTitle('Nice Gadgets');
   const {
     data: products,
     isLoading,

@@ -1,4 +1,6 @@
 import React, { useMemo } from 'react';
+import { publicPath } from '../../utils/publicPath';
+import { useDocumentTitle } from '../../hooks/useDocumentTitle';
 import { useSearchParams } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
 import { useShop } from '../../context/ShopContext';
@@ -10,7 +12,6 @@ import { Pagination } from '../../components/Pagination';
 import { Loader } from '../../components/Loader';
 import { ErrorMessage } from '../../components/ErrorMessage';
 import './CatalogPage.scss';
-import { publicPath } from '../../utils/publicPath';
 
 interface Props {
   category: Category;
@@ -52,6 +53,7 @@ function sortProducts(products: Product[], sortBy: SortBy): Product[] {
 }
 
 export const CatalogPage: React.FC<Props> = ({ category, title }) => {
+  useDocumentTitle(`${title} - Nice Gadgets`);
   const {
     data: allProducts,
     isLoading,
@@ -158,6 +160,7 @@ export const CatalogPage: React.FC<Props> = ({ category, title }) => {
             totalPages={totalPages}
             currentPage={page}
             onPageChange={value => updateParams({ page: value })}
+            sticky
           />
         </>
       )}

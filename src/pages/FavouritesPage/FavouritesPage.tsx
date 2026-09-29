@@ -1,10 +1,12 @@
 import React from 'react';
 import { useShop } from '../../context/ShopContext';
+import { useDocumentTitle } from '../../hooks/useDocumentTitle';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { ProductsList } from '../../components/ProductsList';
 import './FavouritesPage.scss';
 
 export const FavouritesPage: React.FC = () => {
+  useDocumentTitle('Favourites - Nice Gadgets');
   const { favourites, cartIds, favouriteIds, toggleFavourite, addToCart } =
     useShop();
 

@@ -7,6 +7,15 @@
   justify-content: center;
   gap: 8px;
 
+  &--sticky {
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+    padding-block: 16px;
+    background-color: $color-white;
+    border-top: 1px solid $color-elements;
+  }
+
   &__list {
     display: flex;
     gap: 8px;
@@ -15,7 +24,7 @@
   &__page {
     @include square-icon-button(40px);
     @include font-button;
-    
+
     color: $color-primary;
 
     &--active {
@@ -33,7 +42,7 @@
   &__gap {
     @include flex-center;
     @include font-button;
-    
+
     width: 40px;
     height: 40px;
     color: $color-secondary;

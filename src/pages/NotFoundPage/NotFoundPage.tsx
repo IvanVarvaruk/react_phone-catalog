@@ -1,7 +1,8 @@
 import React from 'react';
+import { publicPath } from '../../utils/publicPath';
+import { useDocumentTitle } from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import './NotFoundPage.scss';
-import { publicPath } from '../../utils/publicPath';
 
 interface Props {
   image?: string;
@@ -16,6 +17,8 @@ export const NotFoundPage: React.FC<Props> = ({
   linkTo = '/',
   linkLabel = 'Go to Home page',
 }) => {
+  useDocumentTitle('Page not found - Nice Gadgets');
+
   return (
     <div className="not-found-page">
       <img src={image} alt={title} className="not-found-page__image" />

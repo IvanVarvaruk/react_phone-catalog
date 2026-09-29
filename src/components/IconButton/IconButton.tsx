@@ -33,10 +33,12 @@ export const IconButton: React.FC<Props> = ({
         'icon-button--disabled': disabled,
       })}
     >
-      <Icon name={icon} className="icon-button__icon" />
-      {typeof badge === 'number' && badge > 0 && (
-        <span className="icon-button__badge">{badge}</span>
-      )}
+      <span className="icon-button__glyph">
+        <Icon name={icon} className="icon-button__icon" />
+        {typeof badge === 'number' && badge > 0 && (
+          <span className="icon-button__badge">{badge}</span>
+        )}
+      </span>
     </button>
   );
 };

@@ -1,12 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useShop } from '../../context/ShopContext';
+import { useDocumentTitle } from '../../hooks/useDocumentTitle';
 import { formatPrice } from '../../utils/format';
 import { Icon } from '../../components/Icon';
 import { CartItem } from '../../components/CartItem';
 import './CartPage.scss';
 
 export const CartPage: React.FC = () => {
+  useDocumentTitle('Cart - Nice Gadgets');
   const navigate = useNavigate();
   const { cartItems, removeFromCart, setCartQuantity, clearCart } = useShop();
 

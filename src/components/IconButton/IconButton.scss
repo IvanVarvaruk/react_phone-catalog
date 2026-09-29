@@ -42,6 +42,13 @@
     opacity: 0.4;
   }
 
+  &__glyph {
+    position: relative;
+    display: flex;
+    width: 16px;
+    height: 16px;
+  }
+
   &__icon {
     width: 16px;
     height: 16px;
@@ -52,8 +59,8 @@
     @include flex-center;
     
     position: absolute;
-    top: -6px;
-    right: -6px;
+    top: -8px;
+    right: -8px;
     min-width: 16px;
     height: 16px;
     padding-inline: 3px;

@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import { ScrollToTop } from './components/ScrollToTop';
 import { HomePage } from './pages/HomePage/HomePage';
 import { CatalogPage } from './pages/CatalogPage/CatalogPage';
 import { ProductPage } from './pages/ProductPage/ProductPage';
@@ -12,6 +13,7 @@ import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage';
 export const App: React.FC = () => {
   return (
     <>
+      <ScrollToTop />
       <Header />
 
       <main>

@@ -7,6 +7,7 @@ interface Props {
   totalPages: number;
   currentPage: number;
   onPageChange: (page: number) => void;
+  sticky?: boolean;
 }
 
 function getVisiblePages(current: number, total: number): (number | 'gap')[] {
@@ -32,6 +33,7 @@ export const Pagination: React.FC<Props> = ({
   totalPages,
   currentPage,
   onPageChange,
+  sticky = false,
 }) => {
   if (totalPages <= 1) {
     return null;
@@ -40,7 +42,10 @@ export const Pagination: React.FC<Props> = ({
   const pages = getVisiblePages(currentPage, totalPages);
 
   return (
-    <nav className="pagination" aria-label="Pagination">
+    <nav
+      className={classNames('pagination', { 'pagination--sticky': sticky })}
+      aria-label="Pagination"
+    >
       <IconButton
         icon="chevron-left"
         ariaLabel="Previous page"

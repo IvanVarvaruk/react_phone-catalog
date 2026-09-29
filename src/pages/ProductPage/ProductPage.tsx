@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { publicPath } from '../../utils/publicPath';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
 import { useShop } from '../../context/ShopContext';
@@ -16,8 +17,8 @@ import { ProductsSlider } from '../../components/ProductsSlider';
 import { Loader } from '../../components/Loader';
 import { ErrorMessage } from '../../components/ErrorMessage';
 import { NotFoundPage } from '../NotFoundPage/NotFoundPage';
+import { useDocumentTitle } from '../../hooks/useDocumentTitle';
 import './ProductPage.scss';
-import { publicPath } from '../../utils/publicPath';
 
 const CATEGORIES: Category[] = ['phones', 'tablets', 'accessories'];
 
@@ -76,6 +77,8 @@ export const ProductPage: React.FC = () => {
   const { favouriteIds, cartIds, toggleFavourite, addToCart } = useShop();
 
   const product = catalog?.find(item => item.id === itemId);
+
+  useDocumentTitle(product ? `${product.name} - Nice Gadgets` : 'Nice Gadgets');
 
   const variants = useMemo(
     () =>
@@ -144,7 +147,7 @@ export const ProductPage: React.FC = () => {
       <button
         type="button"
         className="product-page__back"
-        onClick={() => navigate(-1)}
+        onClick={() => navigate(`/${category}`)}
       >
         <Icon name="chevron-left" />
         Back
